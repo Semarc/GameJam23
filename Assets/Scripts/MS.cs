@@ -42,13 +42,44 @@ public class MS : MonoBehaviour
             }
         }
 
-        
-        while(!areAllCellsAssigned())
+        int x = Mathf.FloorToInt(Random.value * map.Length);
+        int y = Mathf.FloorToInt(Random.value * map.Length);
+
+        map[x][y].assignedTile = 0;
+        map[Mathf.Abs(x + 1) % map.Length][y].possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
+        map[Mathf.Abs(x - 1) % map.Length][y].possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
+        map[x][Mathf.Abs(y + 1) % map.Length].possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
+        map[x][Mathf.Abs(y - 1) % map.Length].possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
+
+
+
+        while (!areAllCellsAssigned())
         {
             //Cell Selection
-            List<mapCell> possibleCells = CellsWithMinimumChooseThingy();
+            List<mapCell> cellsWithMinimumThingy = CellsWithMinimumChooseThingy();
 
-            mapCell cell = possibleCells[Mathf.FloorToInt(Random.value * possibleCells.Count)];
+            mapCell cell = cellsWithMinimumThingy[Mathf.FloorToInt(Random.value * cellsWithMinimumThingy.Count)];
+
+            bool hasChanged = false;
+
+            for (int i = 0; i < map.Length; i++)
+            {
+                for (int j = 0; j < map[i].Length; j++)
+                {
+                    if(map[i][j] == cell)
+                    {
+                        x = i;
+                        y = j;
+
+                        hasChanged = true;
+
+                        break;
+                    }
+                }
+
+                if(hasChanged)
+                    break;
+            }
 
             //Collapse Cell
             int[] weigthedArray = getWeigthedArray(cell.possibleCells);
@@ -56,6 +87,13 @@ public class MS : MonoBehaviour
             cell.assignedTile = weigthedArray[Mathf.FloorToInt(Random.value * weigthedArray.Length)];
 
             //Propagation
+            if(cell.assignedTile == 0)
+            {
+                map[Mathf.Abs(x + 1) % map.Length][y].possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
+                map[Mathf.Abs(x - 1) % map.Length][y].possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
+                map[x][Mathf.Abs(y + 1) % map.Length].possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
+                map[x][Mathf.Abs(y - 1) % map.Length].possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
+            }
         }
 
         //Apply array to Tilemap
@@ -81,7 +119,55 @@ public class MS : MonoBehaviour
 
         result.Add(cell);
 
+        for (int i = 0; i < map.Length; i++)
+        {
+            //Debug.Log(i);
+            for (int j = 0; j < map[i].Length; j++)
+            {
+                if (map[i][j].assignedTile < 0)
+                {
+                    Debug.Log(i + " | " + j + " | " + calculateEntropy(map[i][j].possibleCells));
+                    if (calculateEntropy(map[i][j].possibleCells) == calculateEntropy(result[0].possibleCells) && map[i][j] != result[0])
+                    {
+                        result.Add(map[i][j]);
+                        Debug.Log(i + " | " + j + " | " + calculateEntropy(map[i][j].possibleCells));
+                    }
+                    else if (calculateEntropy(map[i][j].possibleCells) < calculateEntropy(result[0].possibleCells) && map[i][j] != result[0])
+                    {
+                        result.Clear();
+
+                        result.Add(map[i][j]);
+
+                        //i = 0;
+
+                        Debug.Log("FINAL: " + i + " | " + j + " | " + calculateEntropy(map[i][j].possibleCells));
+
+                        break;
+                    }
+                }
+            }
+        }
+
         return result;
+    }
+
+    public float calculateEntropy(List<int[]> possCells)
+    {
+        int totalWeight = 0;
+        float result = 0;
+
+        for (int i = 0; i < possCells.Count; i++)
+        {
+            totalWeight += possCells[i][1];
+        }
+
+        for (int i = 0; i < possCells.Count; i++)
+        {
+            float probability = (possCells[i][1] / totalWeight);
+            result += probability * Mathf.Log(probability);
+        }
+
+        return -result;
     }
 
     public bool areAllCellsAssigned()
@@ -101,13 +187,6 @@ public class MS : MonoBehaviour
     public int[] getWeigthedArray(List<int[]> ew)
     {
         int[] result;
-
-        int totalWeight = 0;
-        for(int i = 0; i < ew.Count; i++)
-        {
-            totalWeight += ew[i][1];
-        }
-        result = new int[totalWeight];
 
         List<int> llist = new List<int>();
         for (int i = 0; i < ew.Count; i++)
@@ -130,7 +209,6 @@ public class MS : MonoBehaviour
 
         public mapCell()
         {
-            possibleCells.Add(new int[] { 0, MS.Instance.tileWeights[0] });
             possibleCells.Add(new int[] { 1, MS.Instance.tileWeights[1] });
             possibleCells.Add(new int[] { 2, MS.Instance.tileWeights[2] });
             possibleCells.Add(new int[] { 3, MS.Instance.tileWeights[3] });
@@ -142,4 +220,6 @@ public class MS : MonoBehaviour
             public int tileID, weight;
         }
     }
+
+
 }
