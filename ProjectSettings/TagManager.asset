@@ -14,7 +14,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -40,4 +40,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2283268531
+    locked: 0
+  - name: Middleground
+    uniqueID: 698223419
+    locked: 0
+  - name: Foreground
+    uniqueID: 1515369703
+    locked: 0
+  - name: Player
+    uniqueID: 467414739
+    locked: 0
+  - name: Cops
+    uniqueID: 216288853
     locked: 0
