@@ -11,6 +11,7 @@ public class CopScript : MonoBehaviour
 	[SerializeField] private Transform target;
 	[SerializeField] private float CopSpeed = 300f;
 	[SerializeField] private float nextWaypointDistance = 3f;
+	[SerializeField] private Transform GFXs;
 
 	private Path path;
 	private int currentWaypoint = 0;
@@ -72,6 +73,15 @@ public class CopScript : MonoBehaviour
 		if (distance < nextWaypointDistance)
 		{
 			currentWaypoint++;
+		}
+
+		if (rb.velocity.x > float.Epsilon)
+		{
+			GFXs.localScale = new Vector3(-1, 1, 1);
+		}
+		else if (rb.velocity.x < float.Epsilon)
+		{
+			GFXs.localScale = Vector3.one;
 		}
 	}
 }
