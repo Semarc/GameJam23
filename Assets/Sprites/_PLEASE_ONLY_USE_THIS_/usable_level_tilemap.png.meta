@@ -249,7 +249,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: 4}
+        - {x: -4, y: 4}
+        - {x: -4, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: 7fdff649861a92344834f8a01d136be3
@@ -270,7 +276,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 4}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: 4}
       tessellationDetail: 0
       bones: []
       spriteID: 921d03d99614c8e4b882d56bc24c434c
@@ -291,7 +301,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 4, y: -8}
+        - {x: 4, y: 4}
+        - {x: -8, y: 4}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: 15e6780b3b412dc4e9e79c0ed3a10f8d
@@ -816,7 +832,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: -4, y: 8}
+        - {x: -4, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: 71c02ef82debfec4fa44aaf792faf635
@@ -858,7 +878,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 4, y: -8}
+        - {x: 4, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: 17cebb0d24a69904f894dfc638851ebe
@@ -1131,7 +1155,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: -4, y: 8}
+        - {x: -4, y: -4}
+        - {x: 8, y: -4}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: 1fc5a52e541f4324caaab5aff25870bb
@@ -1152,7 +1182,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: -4}
+        - {x: 8, y: -4}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: 4ee62bc3b3bf16e4eb6ce7816c9481be
@@ -1173,7 +1207,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: -4}
+        - {x: 4, y: -4}
+        - {x: 4, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: af81327b5a69fca4a814f871a7446103
@@ -1771,27 +1811,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_tilemap_149
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 336
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5008a993997dee46adfbea85e695bf9
-      internalID: -1457430418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: level_tilemap_150
       rect:
         serializedVersion: 2
@@ -1855,27 +1874,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_tilemap_153
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 336
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f004751f68e1684499288299315fa08
-      internalID: -499238727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: level_tilemap_154
       rect:
         serializedVersion: 2
@@ -1892,90 +1890,6 @@ TextureImporter:
       bones: []
       spriteID: 2e9002ef89f65754d8b17840e5ef81a8
       internalID: 497238613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_tilemap_155
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 320
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c7147e4303aacf42a111287723c4c64
-      internalID: 327384590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_tilemap_156
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 320
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ac72fb20fccef445b18618d002f9232
-      internalID: -630438389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_tilemap_157
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 320
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba9fe943554127d419a62db1a9273a56
-      internalID: -2128474275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_tilemap_158
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 320
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07d94ab615cb1e7498d3c163c6894c51
-      internalID: 1562872440
       vertices: []
       indices: 
       edges: []
@@ -2081,27 +1995,6 @@ TextureImporter:
       bones: []
       spriteID: f19925ebfd426364e9e31be710a7435c
       internalID: -141746725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_tilemap_189
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 304
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d152089b5d7c76247934a0d562e73d55
-      internalID: 332428297
       vertices: []
       indices: 
       edges: []
@@ -2989,27 +2882,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_tilemap_343
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 240
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 319b77740ff4843408c1215cfd5dfbf1
-      internalID: 673420352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: level_tilemap_358
       rect:
         serializedVersion: 2
@@ -3131,27 +3003,6 @@ TextureImporter:
       bones: []
       spriteID: f15fd3f603dcebc4d97aee4fe80a4341
       internalID: -871644260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_tilemap_374
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 224
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dca65e44f31f2844abc07302b3ad76ef
-      internalID: -232784337
       vertices: []
       indices: 
       edges: []
