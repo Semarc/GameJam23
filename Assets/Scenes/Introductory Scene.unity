@@ -342,7 +342,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 34431292}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 49911995}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: Continue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &34431292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +508,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a19b1d49cff0dd42866ca0687ac1172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textComponent: {fileID: 2141163884}
+  lines:
+  - 'Today is finally the day. Did you all make sure nobody saw you coming here? '
+  - Alla, what about your parents?
+  - "Made it out of there without making a single noise. They shouldn\u2019t notice
+    that I'm missing, so don't worry. "
+  - Even though I often sneaked out past curfew my parents still think I'm their
+    lawful little angel.
+  - 'Alright. And you, Andy? What about your wife? '
+  - 'She knows about our plans and will give me an alibi in case something goes wrong. '
+  - Good.
+  - "Now that we\u2019re all here, safe and unseen, let me tell you more about the
+    plan.  "
+  - 'As you all know, our lovely city is powered and regulated by so-called energy
+    distributors. '
+  - I've been studying and experimenting with their functionality for years now
+  - "\u2013 the perfect chance to bring down the government. "
+  - and if we manage to manipulate ALL of them this city will devolve into chaos
+  - This will mean justice for all of us...
+  - 'Indeed.  So the plan is to get  as close to them  as possible. '
+  - But we need to be very careful. This city is full of guards.
+  - 'Whenever they spot something suspicious they will try to apprehend it so we
+    gotta make sure they won''t catch us.  And manipulating the distributors will
+    lead to a short alarm. '
+  - "After triggering it, run immediately and hide until it\u2019s safe again. Got
+    it?"
+  - Yup!
+  - Got it. What district will we start in?
+  - "My research shows that this one should be the easiest to handle. I compared
+    some maps I pilfered from the office and I think we\u2019ve got a good start
+    here"
+  - There are only four energy distributors around and the surveillance is not too
+    strong.
+  - We can work our way through the whole city after that. Let's not waste any more
+    time.
+  - Alright. Let's create some TRUE CHAOS tonight!
+  textSpeed: 0.05
   blackscreen: {fileID: 504914132}
+  portrait: {fileID: 774887035}
+  name: {fileID: 1211513887}
+  continueButton: {fileID: 34431291}
+  sin: SIN
+  sinPortrait: {fileID: 21300000, guid: f8b1aa656db0a6c49935fa80512d3c0a, type: 3}
+  alla: ALLA
+  allaPortrait: {fileID: 21300000, guid: 76302583d8239da4cb0b2ae28ded4af1, type: 3}
+  kat: KAT
+  katPortrait: {fileID: 21300000, guid: e8fb0c2a6bb220b48b7c02477fd64233, type: 3}
+  andy: ANDY
+  andyPortrait: {fileID: 21300000, guid: b5605016a66ee224d861e9f7f37e9acc, type: 3}
 --- !u!1 &90896936
 GameObject:
   m_ObjectHideFlags: 0
@@ -31392,7 +31452,7 @@ GameObject:
   - component: {fileID: 979657262}
   - component: {fileID: 979657263}
   m_Layer: 0
-  m_Name: Kat (replace sprite)
+  m_Name: 'Kat '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31407,7 +31467,7 @@ Transform:
   m_GameObject: {fileID: 979657261}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.51, z: 6.688252}
+  m_LocalPosition: {x: 0.12, y: -0.51, z: 6.688252}
   m_LocalScale: {x: 6.8248, y: 6.8248, z: 6.8248}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31454,7 +31514,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1524910607, guid: decac5c0f0e57464abc7c2ec191dbaf6, type: 3}
+  m_Sprite: {fileID: 773504821, guid: 031baaefee927214bbc2e34ec8eabcca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -31613,8 +31673,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.4084, y: 0.09135, z: 0}
-    m_Extent: {x: 0.48290002, y: 0.29155, z: 0}
+    m_Center: {x: -0.451, y: 0.083749995, z: 0}
+    m_Extent: {x: 0.4423, y: 0.29315, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -56668,7 +56728,7 @@ GameObject:
   - component: {fileID: 1746527545}
   - component: {fileID: 1746527546}
   m_Layer: 0
-  m_Name: Alla (replace sprite)
+  m_Name: 'Alla '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56730,7 +56790,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1290375057, guid: decac5c0f0e57464abc7c2ec191dbaf6, type: 3}
+  m_Sprite: {fileID: -365770321, guid: 173ab7dec0944e24287dbc475d997c0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -59642,8 +59702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Now that we\u2019re all here, safe and unseen, let me tell you more about
-    the plan. "
+  m_text: Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c19f3f192dc41c24dbf771c873dad859, type: 2}
   m_sharedMaterial: {fileID: 1875573997364559468, guid: c19f3f192dc41c24dbf771c873dad859, type: 2}
