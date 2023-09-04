@@ -7,8 +7,8 @@ public class endScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("AudioManager").PlayThrowSound();
-        GameObject.Find("AudioManager").PlayMusic(2);
+        AudioScript.Instance.PlayThrowSound();
+        AudioScript.Instance.PlayMusic(2);
     }
 
     // Update is called once per frame
