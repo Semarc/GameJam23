@@ -13,7 +13,7 @@ public class GeneratorScript : MonoBehaviour
 	[SerializeField] private Sprite GeneratorActiveSprite;
 	[SerializeField] private Sprite GeneratorDisabeledSprite;
 
-	public bool GeneratorActive { get; private set; }
+	public bool GeneratorActive { get; private set; } = true;
 
 	private void Awake()
 	{
