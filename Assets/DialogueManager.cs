@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     private int index;
     [SerializeField] GameObject blackscreen;
     [SerializeField] GameObject portrait;
+    [SerializeField] GameObject dialogueBox;
     [SerializeField] TextMeshProUGUI name;
     [SerializeField] Button continueButton;
 
@@ -35,9 +36,11 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(WaitForDialogueStart());
         textComponent.text = string.Empty;
         StartDialogue();
     }
+
    void Update()
     {
         // change character portrait and name to Kat
@@ -107,6 +110,11 @@ public class DialogueManager : MonoBehaviour
         continueButton.interactable = true;
     }
 
+    private IEnumerator WaitForDialogueStart()
+    {
+        yield return new WaitForSeconds(1.5f);
+        dialogueBox.SetActive(true);
+    }
     private IEnumerator WaitForLevelSceneLoad()
     {
         yield return new WaitForSeconds(1);
