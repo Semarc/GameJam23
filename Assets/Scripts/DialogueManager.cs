@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     private int index;
     [SerializeField] GameObject blackscreen;
     [SerializeField] GameObject portrait;
+    [SerializeField] GameObject dialogueBox;
     [SerializeField] TextMeshProUGUI name;
     [SerializeField] Button continueButton;
 
@@ -35,34 +36,36 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(WaitForDialogueStart());
         textComponent.text = string.Empty;
         StartDialogue();
     }
+
    void Update()
     {
         // change character portrait and name to Kat
-        if (index == 0 | index == 1 | index == 4 || index == 6 || index == 18 || index == 22)
+        if (index == 0 | index == 1 | index == 4 || index == 6 || index == 19 || index == 24)
         {
             name.text = kat;
             portrait.GetComponent<UnityEngine.UI.Image>().sprite = katPortrait;
         }
 
         // change character portrait and name to Alla
-        if(index == 2 | index == 3 | index == 17)
+        if(index == 2 | index == 3 | index == 18)
         {
             name.text = alla;
             portrait.GetComponent<UnityEngine.UI.Image>().sprite = allaPortrait;
         }
 
         // change character portrait and name to Andy
-        if (index == 5 | index == 12 | index == 19 | index == 20)
+        if (index == 5 | index == 12 | index == 20 | index == 21 | index == 22)
         {
             name.text = andy;
             portrait.GetComponent<UnityEngine.UI.Image>().sprite = andyPortrait;
         }
 
         // change character portrait and name to Sin
-        if (index == 7 | index == 8 | index == 9 | index == 10 | index == 11 | index == 13 | index == 14 | index == 15 | index == 16 | index == 21)
+        if (index == 7 | index == 8 | index == 9 | index == 10 | index == 11 | index == 13 | index == 14 | index == 15 | index == 16 | index == 17 | index == 23)
         {
             name.text = sin;
             portrait.GetComponent<UnityEngine.UI.Image>().sprite = sinPortrait;
@@ -107,6 +110,11 @@ public class DialogueManager : MonoBehaviour
         continueButton.interactable = true;
     }
 
+    private IEnumerator WaitForDialogueStart()
+    {
+        yield return new WaitForSeconds(1.5f);
+        dialogueBox.SetActive(true);
+    }
     private IEnumerator WaitForLevelSceneLoad()
     {
         yield return new WaitForSeconds(1);
