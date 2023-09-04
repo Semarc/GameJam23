@@ -6,7 +6,7 @@ public class AudioScript : MonoBehaviour
 	public static AudioScript Instance { get; private set; }
 
 
-	[SerializeField] AudioClip Flashlight;
+	[SerializeField] AudioClip EnergyDistAlarm;
 	[SerializeField] AudioClip Throw;
 	[SerializeField] AudioClip Select;
 
@@ -35,7 +35,7 @@ public class AudioScript : MonoBehaviour
 	}
 	public void PlayFlashlightSound()
 	{
-		player.PlayOneShot(Flashlight);
+		player.PlayOneShot(EnergyDistAlarm);
 	}
 	public void PlaySelectSound()
 	{
