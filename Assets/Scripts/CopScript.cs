@@ -1,12 +1,8 @@
 using System.Collections;
-using System.Runtime.ConstrainedExecution;
 
 using Pathfinding;
 
-using Unity.PlasticSCM.Editor.WebApi;
-
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Seeker))]
 public class CopScript : MonoBehaviour
@@ -66,6 +62,9 @@ public class CopScript : MonoBehaviour
 		currentTarget = patrolSpots[0];
 		currentSpeed = patrolSpeed;
 
+
+		GameManagerScript.Instance.AddCop(this);
+
 		InvokeRepeating(nameof(UpdatePath), 0, 0.5f);
 	}
 
@@ -103,6 +102,7 @@ public class CopScript : MonoBehaviour
 
 	IEnumerator GraceTimerCo()
 	{
+		Debug.Log("grace timer startet");
 		while (true)
 		{
 			if (outOfSightTime > graceTime)
@@ -114,17 +114,32 @@ public class CopScript : MonoBehaviour
 		}
 	}
 
+	public void StartFollowPlayer()
+	{
+		currentTarget = player;
+		currentSpeed = followSpeed;
+		StartCoroutine(CantLeavePlayerTimerCo());
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject == player.gameObject)
+		{
+			Debug.Log("Hit Cop, game over");
+			//Todo: Game over
+		}
+	}
+
 	private void FixedUpdate()
 	{
 		if (Vector2.Distance(rb.position, player.position) < detectDistance)
 		{
-			currentTarget = player;
-			currentSpeed = followSpeed;
-			StartCoroutine(CantLeavePlayerTimerCo());
+			if (currentTarget != player)
+				StartFollowPlayer();
 		}
 		else if (Vector2.Distance(rb.position, player.position) > leaveDistance && followTime > leaveTime)
 		{
-			if (graceTime == 0)
+			if (outOfSightTime == 0)
 			{
 				StartCoroutine(GraceTimerCo());
 			}
@@ -134,6 +149,7 @@ public class CopScript : MonoBehaviour
 				currentSpeed = patrolSpeed;
 				followTime = 0;
 				outOfSightTime = 0;
+
 			}
 		}
 

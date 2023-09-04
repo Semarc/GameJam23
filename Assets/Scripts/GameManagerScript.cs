@@ -9,6 +9,7 @@ public class GameManagerScript : MonoBehaviour
 	public static GameManagerScript Instance { get; private set; }
 
 	private List<GeneratorScript> generators = new List<GeneratorScript>();
+	private List<CopScript> cops = new List<CopScript>();
 	public int generatorCount { get { return generators.Count; } }
 	public int disablededGeneratorCount { get { return generators.Where(x => x.GeneratorActive == false).Count(); } }
 
@@ -36,5 +37,16 @@ public class GameManagerScript : MonoBehaviour
 	public void AddGenerator(GeneratorScript generator)
 	{
 		generators.Add(generator);
+	}
+	public void AddCop(CopScript cop)
+	{
+		cops.Add(cop);
+	}
+	public void AlarmAllCops()
+	{
+		foreach (var cops in cops)
+		{
+			cops.StartFollowPlayer();
+		}
 	}
 }

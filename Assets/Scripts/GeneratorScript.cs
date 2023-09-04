@@ -18,11 +18,13 @@ public class GeneratorScript : MonoBehaviour
 	private void Awake()
 	{
 		sr = GetComponent<SpriteRenderer>();
+		GameManagerScript.Instance.AddGenerator(this);
 	}
 
 	public void DeactivateGenerator()
 	{
 		GeneratorActive = false;
 		sr.sprite = GeneratorDisabeledSprite;
+		GameManagerScript.Instance.AlarmAllCops();
 	}
 }
