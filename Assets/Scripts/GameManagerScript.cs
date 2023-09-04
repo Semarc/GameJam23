@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+using Cinemachine;
+
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
@@ -12,6 +14,9 @@ public class GameManagerScript : MonoBehaviour
 	private List<CopScript> cops = new List<CopScript>();
 	public int generatorCount { get { return generators.Count; } }
 	public int disablededGeneratorCount { get { return generators.Where(x => x.GeneratorActive == false).Count(); } }
+
+	[SerializeField] private CinemachineVirtualCamera virtualCamera;
+	[SerializeField] private CinemachineVirtualCamera fadeToBlackCamera;
 
 	private void Awake()
 	{
@@ -48,5 +53,11 @@ public class GameManagerScript : MonoBehaviour
 		{
 			cops.StartFollowPlayer();
 		}
+	}
+
+	public void FadeToBlack()
+	{
+		virtualCamera.Priority = 0;
+		fadeToBlackCamera.Priority = 1;
 	}
 }

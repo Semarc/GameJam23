@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class endScene : MonoBehaviour
@@ -11,9 +12,9 @@ public class endScene : MonoBehaviour
         AudioScript.Instance.PlayMusic(2);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
 }
