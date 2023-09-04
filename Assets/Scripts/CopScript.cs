@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.ConstrainedExecution;
 
 using Pathfinding;
@@ -34,6 +35,12 @@ public class CopScript : MonoBehaviour
 	[Tooltip("Die Distanz, ab der der Spieler nicht mehr verfolgt wird. Sollte mehr als die Verfolgedistanz sein")]
 	[SerializeField] private float leaveDistance = 10;
 
+	[Tooltip("Die Zeit, ab der der Cop die Verfolgung abbrechen kann.")]
+	[SerializeField] private float leaveTime = 10;
+
+	[Tooltip("Die Zeit, die der Cop außerhalb der Sicherweite seien muss, um die Verfolgung abzubrechen")]
+	[SerializeField] private float graceTime = 5;
+
 	[Tooltip("Gibt an, ob die Grafik gespiegelt werden soll, wenn der Cop nach rechts bzw. links läuft")]
 	[SerializeField] private bool switchGFXDirection = true;
 
@@ -49,6 +56,8 @@ public class CopScript : MonoBehaviour
 	private Path path;
 	private int currentWaypoint = 0;
 	private bool reachedEndOfPath = false;
+	private float followTime;
+	private float outOfSightTime;
 
 	private void Awake()
 	{
@@ -79,17 +88,53 @@ public class CopScript : MonoBehaviour
 		}
 	}
 
+	IEnumerator CantLeavePlayerTimerCo()
+	{
+		while (true)
+		{
+			if (followTime > leaveTime)
+			{
+				break;
+			}
+			followTime += Time.deltaTime;
+			yield return null;
+		}
+	}
+
+	IEnumerator GraceTimerCo()
+	{
+		while (true)
+		{
+			if (outOfSightTime > graceTime)
+			{
+				break;
+			}
+			outOfSightTime += Time.deltaTime;
+			yield return null;
+		}
+	}
+
 	private void FixedUpdate()
 	{
 		if (Vector2.Distance(rb.position, player.position) < detectDistance)
 		{
 			currentTarget = player;
 			currentSpeed = followSpeed;
+			StartCoroutine(CantLeavePlayerTimerCo());
 		}
-		else if (Vector2.Distance(rb.position, player.position) > leaveDistance)
+		else if (Vector2.Distance(rb.position, player.position) > leaveDistance && followTime > leaveTime)
 		{
-			currentTarget = patrolSpots[patrolSpotIndex];
-			currentSpeed = patrolSpeed;
+			if (graceTime == 0)
+			{
+				StartCoroutine(GraceTimerCo());
+			}
+			else if (outOfSightTime > graceTime)
+			{
+				currentTarget = patrolSpots[patrolSpotIndex];
+				currentSpeed = patrolSpeed;
+				followTime = 0;
+				outOfSightTime = 0;
+			}
 		}
 
 		if (path == null)
@@ -107,10 +152,10 @@ public class CopScript : MonoBehaviour
 		}
 
 		Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-		Vector2 force = direction * currentSpeed * Time.fixedDeltaTime;
+		Vector2 force = currentSpeed * Time.fixedDeltaTime * direction;
 
 		rb.AddForce(force);
-		Debug.Log(force);
+		//Debug.Log(force);
 
 		float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 		if (distance < nextWaypointDistance && currentWaypoint != path.vectorPath.Count || distance < finalPathSpotDistance)
