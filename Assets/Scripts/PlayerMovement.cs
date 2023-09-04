@@ -3,14 +3,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-using static UnityEngine.Rendering.DebugUI;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
 	public Rigidbody2D rb { get; private set; }
 	private Vector2 moveDirection;
-
+	[SerializeField] Animator[] animator;
 	[SerializeField] private float speed = 400f;
 	[SerializeField] private float disableDuration = 5f;
 
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 				break;
 			}
 			totalTime += Time.deltaTime;
-			//Todo: grafical indicator für zerstörung
+			//Todo: grafical indicator fï¿½r zerstï¿½rung
 			yield return null;
 			if (totalTime >= disableDuration)
 			{
