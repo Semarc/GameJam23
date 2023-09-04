@@ -524,21 +524,21 @@ MonoBehaviour:
   - 'As you all know, our lovely city is powered and regulated by so-called energy
     distributors. '
   - I've been studying and experimenting with their functionality for years now
-  - "\u2013 the perfect chance to bring down the government. "
   - and if we manage to manipulate ALL of them this city will devolve into chaos
+  - "\u2013 the perfect chance to bring down the government. "
   - This will mean justice for all of us...
   - 'Indeed.  So the plan is to get  as close to them  as possible. '
   - But we need to be very careful. This city is full of guards.
-  - 'Whenever they spot something suspicious they will try to apprehend it so we
-    gotta make sure they won''t catch us.  And manipulating the distributors will
-    lead to a short alarm. '
+  - Whenever they spot something suspicious they will try to apprehend it so we gotta
+    make sure they won't catch us.
+  - ' And manipulating the distributors will lead to a short alarm. '
   - "After triggering it, run immediately and hide until it\u2019s safe again. Got
     it?"
   - Yup!
   - Got it. What district will we start in?
-  - "My research shows that this one should be the easiest to handle. I compared
-    some maps I pilfered from the office and I think we\u2019ve got a good start
-    here"
+  - My research shows that this one should be the easiest to handle.
+  - "I compared some maps I pilfered from the office and I think we\u2019ve got a
+    good start here."
   - There are only four energy distributors around and the surveillance is not too
     strong.
   - We can work our way through the whole city after that. Let's not waste any more
@@ -31430,7 +31430,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 922359836, guid: decac5c0f0e57464abc7c2ec191dbaf6, type: 3}
+  m_Sprite: {fileID: 269081489, guid: 158b39c649c313a4292948902c3b9a7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -31673,8 +31673,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.451, y: 0.083749995, z: 0}
-    m_Extent: {x: 0.4423, y: 0.29315, z: 0}
+    m_Center: {x: -0.44415, y: 0.07815, z: 0}
+    m_Extent: {x: 0.44175002, y: 0.29625, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
