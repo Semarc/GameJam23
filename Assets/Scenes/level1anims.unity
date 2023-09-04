@@ -53620,6 +53620,7 @@ MonoBehaviour:
   - {fileID: 1791187285}
   - {fileID: 25099686}
   speed: 400
+  disableDuration: 5
 --- !u!50 &990476469
 Rigidbody2D:
   serializedVersion: 4
@@ -53754,7 +53755,7 @@ Animator:
   m_GameObject: {fileID: 990476467}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 46fb8dc58f321ab058c9e5a4b2966ec5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 53f7a207ebb217e3db528c107e67b1d0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -56273,7 +56274,7 @@ Animator:
   m_GameObject: {fileID: 1791187284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 46fb8dc58f321ab058c9e5a4b2966ec5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6f1fe5890d581c32e8f2fa709dc66ec4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
