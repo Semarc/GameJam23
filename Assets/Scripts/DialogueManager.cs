@@ -13,8 +13,9 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
+    [SerializeField] string currentScene;
 
-    private int index;
+    public int index;
     [SerializeField] GameObject blackscreen;
     [SerializeField] GameObject portrait;
     [SerializeField] GameObject dialogueBox;
@@ -40,38 +41,6 @@ public class DialogueManager : MonoBehaviour
         textComponent.text = string.Empty;
         StartDialogue();
     }
-
-   void Update()
-    {
-        // change character portrait and name to Kat
-        if (index == 0 | index == 1 | index == 4 || index == 6 || index == 19 || index == 24)
-        {
-            name.text = kat;
-            portrait.GetComponent<UnityEngine.UI.Image>().sprite = katPortrait;
-        }
-
-        // change character portrait and name to Alla
-        if(index == 2 | index == 3 | index == 18)
-        {
-            name.text = alla;
-            portrait.GetComponent<UnityEngine.UI.Image>().sprite = allaPortrait;
-        }
-
-        // change character portrait and name to Andy
-        if (index == 5 | index == 12 | index == 20 | index == 21 | index == 22)
-        {
-            name.text = andy;
-            portrait.GetComponent<UnityEngine.UI.Image>().sprite = andyPortrait;
-        }
-
-        // change character portrait and name to Sin
-        if (index == 7 | index == 8 | index == 9 | index == 10 | index == 11 | index == 13 | index == 14 | index == 15 | index == 16 | index == 17 | index == 23)
-        {
-            name.text = sin;
-            portrait.GetComponent<UnityEngine.UI.Image>().sprite = sinPortrait;
-        }
-
-    }
     void StartDialogue()
     {
         index = 0;
@@ -88,7 +57,15 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Skip();
+            if(currentScene == "introduction")
+            {
+                Skip();
+            }
+            else if(currentScene == "ending")
+            {
+                SceneManager.LoadScene("End Screen");
+            }
+      
         }
     }
 
