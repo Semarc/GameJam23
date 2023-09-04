@@ -63,7 +63,6 @@ public class CopScript : MonoBehaviour
 		currentTarget = patrolSpots[0];
 		currentSpeed = patrolSpeed;
 
-
 		GameManagerScript.Instance.AddCop(this);
 
 		InvokeRepeating(nameof(UpdatePath), 0, 0.5f);

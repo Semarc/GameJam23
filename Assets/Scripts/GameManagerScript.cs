@@ -5,6 +5,7 @@ using System.Linq;
 using Cinemachine;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameManagerScript : MonoBehaviour
 
 	[SerializeField] private CinemachineVirtualCamera virtualCamera;
 	[SerializeField] private CinemachineVirtualCamera fadeToBlackCamera;
+	[SerializeField] private Canvas canvas;
 
 	private void Awake()
 	{
@@ -32,12 +34,17 @@ public class GameManagerScript : MonoBehaviour
 
 	private void Update()
 	{
-		if (disablededGeneratorCount > generatorCount)
+		if (disablededGeneratorCount >= generatorCount)
 		{
-			//Todo: Hier kommt der Spiel-Ende-Code rein
+			FadeToBlack();
+			Invoke(nameof(loadEndingScene), 2);
 		}
 	}
 
+	private void loadEndingScene()
+	{
+		SceneManager.LoadScene("EndingScene");
+	}
 
 	public void AddGenerator(GeneratorScript generator)
 	{
@@ -57,6 +64,7 @@ public class GameManagerScript : MonoBehaviour
 
 	public void FadeToBlack()
 	{
+		canvas.enabled = false;
 		virtualCamera.Priority = 0;
 		fadeToBlackCamera.Priority = 1;
 	}
