@@ -13723,7 +13723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1085748900}
   lines:
-  - Use WASD to move and hold E to disable theenergy distributors
+  - Use WASD to move and hold E to disable the energy distributors
   - But be careful that the guards don't catch you!
   textSpeed: 0.05
   index: 0
@@ -52242,7 +52242,7 @@ Transform:
   m_GameObject: {fileID: 574678097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.022991, y: -0.51247, z: -10}
+  m_LocalPosition: {x: 2.7799928, y: -0.51247, z: -10}
   m_LocalScale: {x: 0.14318648, y: 0.14318648, z: 0.14318648}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60058,7 +60058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyDistAlarm: {fileID: 8300000, guid: f06614235f45331ef8ca638e4d69267f, type: 3}
   Throw: {fileID: 8300000, guid: 9a3dfd3080a348124a5b6e7000bf793b, type: 3}
-  Select: {fileID: 8300000, guid: b89491f53afc912579a840ce6f94b343, type: 3}
+  Boom: {fileID: 0}
   Music:
   - {fileID: 8300000, guid: 2c3eb26138ba3cb4a965fd872d0db6e5, type: 3}
   - {fileID: 8300000, guid: 1197c4cff7502b860871b5dfc4276df3, type: 3}
