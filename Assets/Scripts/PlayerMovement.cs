@@ -24,6 +24,17 @@ public class PlayerMovement : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 	}
 
+		// Update is called once per frame
+	void Update()
+	{
+		float movementX = moveDirection.x;
+		float movementY = moveDirection.y;
+		animator[0].SetFloat("Horizontal", movementX);
+		animator[0].SetFloat("Vertical", movementY);
+		animator[0].SetFloat("Speed", moveDirection.magnitude);
+	}
+
+
 	private void OnMovement(InputValue movementValue)
 	{
 		Debug.Log("OnMovement");
