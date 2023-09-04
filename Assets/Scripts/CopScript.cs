@@ -3,6 +3,7 @@ using System.Collections;
 using Pathfinding;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Seeker))]
 public class CopScript : MonoBehaviour
@@ -126,8 +127,16 @@ public class CopScript : MonoBehaviour
 		if (collision.gameObject == player.gameObject)
 		{
 			Debug.Log("Hit Cop, game over");
+
+			GameManagerScript.Instance.FadeToBlack();
+			Invoke(nameof(GamoOverScene), 2);
 			//Todo: Game over
 		}
+	}
+
+	private void GamoOverScene()
+	{
+		SceneManager.LoadScene("Game Over");
 	}
 
 	private void FixedUpdate()
