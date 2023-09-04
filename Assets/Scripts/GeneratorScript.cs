@@ -23,6 +23,7 @@ public class GeneratorScript : MonoBehaviour
 
 	public void DeactivateGenerator()
 	{
+		AudioScript.Instance.PlayFlashlightSound();
 		GeneratorActive = false;
 		sr.sprite = GeneratorDisabeledSprite;
 		GameManagerScript.Instance.AlarmAllCops();
