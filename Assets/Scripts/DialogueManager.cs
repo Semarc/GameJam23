@@ -91,7 +91,7 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(true);
         textComponent.text = string.Empty;
         index = 0;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
         StartDialogue();
     }
     private IEnumerator WaitForLevelSceneLoad()
