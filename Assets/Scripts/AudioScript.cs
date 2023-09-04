@@ -8,11 +8,17 @@ public class AudioScript : MonoBehaviour
 
 	[SerializeField] AudioClip EnergyDistAlarm;
 	[SerializeField] AudioClip Throw;
-	[SerializeField] AudioClip Select;
+	[SerializeField] AudioClip Boom;
 
 	[SerializeField] AudioClip[] Music;
 
 	AudioSource player;
+
+	public bool AudioManagerEnabled
+	{
+		set { player.enabled = value; }
+	}
+	
 	private void Awake()
 	{
 		if (Instance == null)
@@ -39,7 +45,7 @@ public class AudioScript : MonoBehaviour
 	}
 	public void PlaySelectSound()
 	{
-		player.PlayOneShot(Select);
+		player.PlayOneShot(Boom);
 	}
 
 	public void PlayMusic(int index)
