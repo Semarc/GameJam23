@@ -13,7 +13,7 @@ public class GeneratorScript : MonoBehaviour
 	[SerializeField] private Sprite GeneratorActiveSprite;
 	[SerializeField] private Sprite GeneratorDisabeledSprite;
 
-	public bool GeneratorActive { get; private set; }
+	[field: SerializeField] public bool GeneratorActive { get; private set; }
 
 	private void Awake()
 	{
@@ -25,6 +25,7 @@ public class GeneratorScript : MonoBehaviour
 	{
 		AudioScript.Instance.PlayFlashlightSound();
 		GeneratorActive = false;
+		Debug.Log("ChangeGeneratorSprite");
 		sr.sprite = GeneratorDisabeledSprite;
 		GameManagerScript.Instance.AlarmAllCops();
 	}

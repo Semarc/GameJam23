@@ -86,8 +86,9 @@ public class DialogueManager : MonoBehaviour
     }
 
     private IEnumerator WaitForDialogueStart()
-    {
-        yield return new WaitForSeconds(1.5f);
+	{
+		continueButton.interactable = false;
+		yield return new WaitForSeconds(1.5f);
         dialogueBox.SetActive(true);
         textComponent.text = string.Empty;
         index = 0;
