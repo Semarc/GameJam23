@@ -38,12 +38,10 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(WaitForDialogueStart());
-        textComponent.text = string.Empty;
-        StartDialogue();
     }
     void StartDialogue()
     {
-        index = 0;
+        //index = 0;
         StartCoroutine(TypeLine());
     }
     // continue button to continue dialogue
@@ -91,6 +89,10 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         dialogueBox.SetActive(true);
+        textComponent.text = string.Empty;
+        index = 0;
+        yield return new WaitForSeconds(1.0f);
+        StartDialogue();
     }
     private IEnumerator WaitForLevelSceneLoad()
     {
