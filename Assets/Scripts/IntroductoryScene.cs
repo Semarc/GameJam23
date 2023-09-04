@@ -55,6 +55,11 @@ public class IntroductoryScene : MonoBehaviour
             name.text = sin;
             portrait.GetComponent<UnityEngine.UI.Image>().sprite = sinPortrait;
         }
+        
+        if (index == 8)
+        {
+
+        }
     }
 
 }
